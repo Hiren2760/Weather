@@ -22,6 +22,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -40,6 +41,7 @@ import org.json.JSONObject
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -121,9 +123,16 @@ class MainActivity : AppCompatActivity() {
             drawer_home.openDrawer(GravityCompat.START)
         }
 
+        pullToRefresh.setOnRefreshListener(OnRefreshListener {
+            getToday()
+            getLatlong()
+            pullToRefresh.isRefreshing = false
+        })
         //method get LatLong & get Date
         getToday()
         getLatlong()
+
+
     }
 
     // Today date get method

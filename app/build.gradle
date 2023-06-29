@@ -23,6 +23,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 }
 
@@ -55,6 +56,9 @@ dependencies {
     //Loader library
     implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
     implementation 'com.airbnb.android:lottie:3.4.1'
+
+    //Pull-to-Refresh library
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     //Testing App library
     testImplementation 'junit:junit:4.13.2'
